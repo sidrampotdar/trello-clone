@@ -1,3 +1,5 @@
-export default function Home() {
-  return <h1>Trello Clone</h1>;
+import { redirect } from "next/navigation";
+
+export default function BoardRoot() {
+  redirect("/boards");
 }

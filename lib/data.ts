@@ -1,9 +1,21 @@
-import { Board } from "./types";
+import type { Board, Workspace } from "./types";
 
-export const boards: Board[] = [
+export const seedWorkspaces: Workspace[] = [
+  { id: "ws-1", title: "Engineering", boardIds: ["1", "2"] },
+];
+
+export const seedBoards: Board[] = [
   {
     id: "1",
     title: "Product Roadmap",
+    visibility: "workspace",
+    labels: [
+      { id: "lbl-research", name: "Research", color: "violet" },
+      { id: "lbl-ux", name: "UX", color: "sky" },
+      { id: "lbl-content", name: "Content", color: "amber" },
+      { id: "lbl-frontend", name: "Frontend", color: "emerald" },
+      { id: "lbl-qa", name: "QA", color: "rose" },
+    ],
     lists: [
       {
         id: "todo",
@@ -14,18 +26,19 @@ export const boards: Board[] = [
             title: "Map onboarding card states",
             description: "Define the new user journey from invite to first board.",
             createdAt: "May 3",
-            assignee: "AN",
+            assignees: [],
             priority: "High",
-            labels: ["Research", "UX"],
+            labelIds: ["lbl-research", "lbl-ux"],
+            cover: "violet",
           },
           {
             id: "task-2",
             title: "Write API error copy",
             description: "Tighten empty, loading, and failed request states.",
             createdAt: "May 2",
-            assignee: "MR",
+            assignees: [],
             priority: "Medium",
-            labels: ["Content"],
+            labelIds: ["lbl-content"],
           },
         ],
       },
@@ -38,9 +51,10 @@ export const boards: Board[] = [
             title: "Build kanban interactions",
             description: "Drag cards between lists with dnd-kit and keep board state synced.",
             createdAt: "Today",
-            assignee: "LK",
+            assignees: [],
             priority: "High",
-            labels: ["Frontend", "DND"],
+            labelIds: ["lbl-frontend"],
+            cover: "emerald",
           },
         ],
       },
@@ -53,9 +67,9 @@ export const boards: Board[] = [
             title: "Audit responsive board layout",
             description: "Check horizontal scrolling, dense cards, and mobile touch targets.",
             createdAt: "Apr 30",
-            assignee: "PS",
+            assignees: [],
             priority: "Medium",
-            labels: ["QA"],
+            labelIds: ["lbl-qa"],
           },
         ],
       },
@@ -68,12 +82,28 @@ export const boards: Board[] = [
             title: "Seed starter board data",
             description: "Create a useful board so the UI has realistic task density.",
             createdAt: "Apr 29",
-            assignee: "TV",
+            assignees: [],
             priority: "Low",
-            labels: ["Data"],
+            labelIds: [],
           },
         ],
       },
     ],
   },
+  {
+    id: "2",
+    title: "Bug Triage",
+    visibility: "workspace",
+    labels: [
+      { id: "lbl-bug", name: "Bug", color: "rose" },
+      { id: "lbl-investigating", name: "Investigating", color: "amber" },
+    ],
+    lists: [
+      { id: "new", title: "New", cards: [] },
+      { id: "investigating", title: "Investigating", cards: [] },
+      { id: "fixed", title: "Fixed", cards: [] },
+    ],
+  },
 ];
+
+export const boards = seedBoards;
